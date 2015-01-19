@@ -34,7 +34,8 @@ ZenOAuth2
 		
 		$this->_redirect($oauth->authorizeURL() . "?" . http_build_query($params));
 ```
-> 授权获取数据
+
+>  授权获取数据
  ```
  keys = array(
 			'code'	=> $_REQUEST['code'],
