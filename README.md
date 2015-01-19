@@ -13,7 +13,7 @@ ZenOAuth2
 > 部分代码如下：
 前往微博登陆
 ```
-    $config = require APPLICATION_PATH . '/configs/weibo.php';
+$config = require APPLICATION_PATH . '/configs/weibo.php';
 		$oauth = new ZenOAuth2\WeiboOAuth2($config['akey'], $config['skey']);  //初始化oauth
 		$params = array(
 			'client_id'		=> $config['akey'],
@@ -34,8 +34,7 @@ ZenOAuth2
 		
 		$this->_redirect($oauth->authorizeURL() . "?" . http_build_query($params));
 ```
-
->  授权获取数据
+>>  授权获取数据:
  ```
  keys = array(
 			'code'	=> $_REQUEST['code'],
