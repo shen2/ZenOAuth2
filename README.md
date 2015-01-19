@@ -23,27 +23,21 @@ $config = require APPLICATION_PATH . '/configs/weibo.php';
 			'display'		=> null,
 			'scope'			=> $config['scope'],
 		);
-		
 		if(isset($sessionArray['forcelogin']))
 			$params['forcelogin'] = $sessionArray['forcelogin'];
-		
 		$detect = new Mobile_Detect();
 		// Exclude tablets.
 		if ($detect->isMobile() && !$detect->isTablet())
 			$params['display'] = 'mobile';
-		
 		$this->_redirect($oauth->authorizeURL() . "?" . http_build_query($params));
 ```
->>  授权获取数据:
+>  授权获取数据:
  ```
  keys = array(
 			'code'	=> $_REQUEST['code'],
 			'redirect_uri'=>SERVER . 'weibo/connect/',
 		);
-	
 		$token = $oauth->getAccessToken('code', $keys);  //获取token
-	
 		$client = new ZenOAuth2\WeiboClient($token['access_token']);
-		
 		$info = $client->get('users/show', array('uid'=>$token['uid']));  //根据token获取数据
 ```
