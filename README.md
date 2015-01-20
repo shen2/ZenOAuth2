@@ -42,7 +42,10 @@ $token = $oauth->getAccessToken('code', $keys);  //获取token
 ## 平台操作
 
 ```php
-$client = new ZenOAuth2\WeiboClient($token['access_token']);//根据上一步的授权码建立对象
-$info = $client->get('users/show', array('uid'=>$token['uid']));  //根据uid获取数据
-$data = $client->post('comments/destory', array('uid'=>$token['uid'], 'cid' => 'weiboid');  //删除一条微博
+//根据上一步的授权码建立对象
+$client = new ZenOAuth2\WeiboClient($token['access_token']);
+//根据uid获取数据
+$info = $client->get('users/show', array('uid'=>$token['uid'])); 
+//删除一条微博
+$data = $client->post('comments/destory', array('uid'=>$token['uid'], 'cid' => 'weiboid');  
 ```
