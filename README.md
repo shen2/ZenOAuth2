@@ -31,15 +31,17 @@ header('Location :' . $oauth->authorizeURL() . "?" . http_build_query($params));
 ```
 + 获取授权码
  ```php
-    keys = array(
-		'code'	=> $_REQUEST['code'], //微博返回的code
-		'redirect_uri'=>'callback',
+keys = array(
+	'code'	=> $_REQUEST['code'], //微博返回的code
+	'redirect_uri'=>'callback',
 	);
-    $token = $oauth->getAccessToken('code', $keys);  //获取token
+$token = $oauth->getAccessToken('code', $keys);  //获取token
 ```
+
 ## 平台操作
+
 ```php
-   $client = new ZenOAuth2\WeiboClient($token['access_token']);//根据上一步的授权码建立对象
-   $info = $client->get('users/show', array('uid'=>$token['uid']));  //根据uid获取数据
-   $data = $client->('comments/destory', array('uid'=>$token['uid'], 'cid' => 'weiboid');  //删除一条微博
+$client = new ZenOAuth2\WeiboClient($token['access_token']);//根据上一步的授权码建立对象
+$info = $client->get('users/show', array('uid'=>$token['uid']));  //根据uid获取数据
+$data = $client->('comments/destory', array('uid'=>$token['uid'], 'cid' => 'weiboid');  //删除一条微博
 ```
