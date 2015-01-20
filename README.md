@@ -30,6 +30,7 @@ $params = array(
 header('Location :' . $oauth->authorizeURL() . "?" . http_build_query($params));
 ```
 + 获取授权码
+
  ```php
 keys = array(
 	'code'	=> $_REQUEST['code'], //微博返回的code
